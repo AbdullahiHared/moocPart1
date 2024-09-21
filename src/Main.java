@@ -5,14 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Main file");
+        System.out.println();
 
-        System.out.print("Please give a year to check");
-        int userInput = sc.nextInt();
-
-        if((userInput % 400 == 0) || (userInput % 4 == 0) && (userInput % 100 != 0)) {
-            System.out.println("The year is a leap year");
-        } else {
-            System.out.println("The year is not a leap year");
-        }
+        PaymentCard card = new PaymentCard(10);
+        System.out.println("Paul: " + card);
+        card.addMoney(-15);
+        System.out.println("Paul: " + card);
     }
 }
