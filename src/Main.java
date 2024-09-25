@@ -1,16 +1,31 @@
 import java.util.Scanner;
-import java.util.ArrayList;import java.util.List;
+import java.util.ArrayList;
+import java.time.LocalTime;
+import java.util.List;
 //package tools;
 public class Main {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Main file");
-        System.out.println();
+        ArrayList<Items> items = new ArrayList<>();
 
-        PaymentCard card = new PaymentCard(10);
-        System.out.println("Paul: " + card);
-        card.addMoney(-15);
-        System.out.println("Paul: " + card);
+
+        // ask user for personal information
+        while(true) {
+            System.out.println("Please Enter Your first Name");
+            String firstName = sc.nextLine();
+            System.out.println("Please Enter Your last Name");
+            String lastName = sc.nextLine();
+            if(firstName.isEmpty()) {
+                break;
+            }
+
+            items.add(new Items(firstName, lastName));
+        }
+
+        for(Items item : items) {
+            System.out.println(item);
+        }
+
     }
 }
+
