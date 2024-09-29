@@ -6,18 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Timer timer = new Timer();
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
+        System.out.println(unicafeExactum);
 
-        while (true) {
-            System.out.println(timer);
-            timer.advance();
+        PaymentCard annesCard = new PaymentCard(2);
 
-            try {
-                Thread.sleep(10);
-            } catch (Exception e) {
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
 
-            }
-        }
+        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+        System.out.println();
 
+        unicafeExactum.addMoneyToCard(annesCard, 100);
+        System.out.println(annesCard.balance());
+
+        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        System.out.println(unicafeExactum);
     }
 }
